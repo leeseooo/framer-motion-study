@@ -1,0 +1,60 @@
+@mixin large-text {
+  font: {
+    size: 48px;
+    weight: bold;
+    style: italic;
+  }
+  color: orange;
+}
+
+$color: orange;
+
+.main {
+  width: 100%;
+  height: 100vh;
+  @if $color == orange {
+    background-color: orange;
+  } @else {
+    background-color: darkblue;
+  }
+
+  padding: 0;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.box {
+  width: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 50px;
+
+  img {
+    width: 80px;
+    height: auto;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+.todo {
+  color: red;
+  &-small {
+    font-size: 10px;
+  }
+  &-large {
+    @include large-text;
+  }
+}
